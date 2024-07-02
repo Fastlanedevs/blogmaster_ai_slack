@@ -9,23 +9,26 @@ from create_blog import create_blog
 from dotenv import load_dotenv
 load_dotenv()
 mongodb_uri = os.getenv("MONGO_DB_URI")
-print(mongodb_uri)
+# print(mongodb_uri)
  #create a connection to the mongodb
 client = MongoClient(mongodb_uri)
 db = client["articles"]
 collection = db["tasks"]
 # mongodb objectId
-def create_task(topic):
+def create_task(topic,content_type, tonality, content_goal):
     id = ObjectId()
     data = collection.insert_one(
         {
             "_id": id,
             "status": "pending",
             "topic": topic,
+            "content_type": content_type,
+            "tonality": tonality,
+            "content_goal": content_goal,
             "created_at": str(id.generation_time),
         }
     )
-    threading.Thread(target=create_blog, args=(id, topic)).start()
+    threading.Thread(target=create_blog, args=(id, topic,content_type, tonality, content_goal)).start()
     return str(id)
 
 def get_task_status(id):
