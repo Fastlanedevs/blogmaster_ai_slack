@@ -27,7 +27,7 @@ llm = Ollama(
     model = "llama3",
     base_url = "http://localhost:11434")
 
-#   Initialize the tools for image searching capabilities
+
 
 #   Initialize the tools for internet searching capabilities
 @tool('search_tool')
@@ -49,6 +49,7 @@ planner = Agent(
     llm=llm
 )
 
+# Writing Agent
 writer = Agent(
     role="Expert Content Creator",
     goal="Craft an insightful, engaging, and SEO-friendly {content_type} on {topic}, based on the provided content plan and user-specified parameters",
@@ -58,6 +59,7 @@ writer = Agent(
     verbose=False,
     llm=llm
 )
+# Editing Agent
 editor = Agent(
     role="Senior Content Editor",
     goal="Refine and polish the blog post to ensure it meets the highest standards of quality, accuracy, and brand alignment",
@@ -68,6 +70,7 @@ editor = Agent(
     llm=llm
 )
 
+# Define the tasks for the crew agents
 plan = Task(
     description="""
     1. Use the SerperDevTool to conduct thorough research on {topic}.Strictly use the top 5 search results only and Focus on:
@@ -149,13 +152,13 @@ edit = Task(
     agent=editor
 )
 
+# Create the Crew with the defined agents and tasks
 crew = Crew(
     agents=[planner, writer, editor],
     tasks=[plan, write, edit],
     verbose=2
 )
-# result = crew.kickoff(inputs={"topic": "Modi ji","content_type":"blog","tonality":"casual","content_goal":"inform"})
-# print(result)
+# function to create a blog article and update the database 
 def create_blog(id, topic,content_type, tonality, content_goal):
    
     result = crew.kickoff(inputs={"topic": topic,"content_type":content_type,"tonality":tonality,"content_goal":content_goal })
