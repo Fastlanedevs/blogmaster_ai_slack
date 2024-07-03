@@ -137,7 +137,7 @@ Now your API should be accessible at `http://your_domain.com`.
 
 Note: Make sure to set up proper security measures, such as SSL/TLS encryption and API authentication, before exposing your API to the internet.
 
-Alternative: Ngrok (for temporary access)
+### Alternative: Ngrok (for temporary access)
 If you need a quick, temporary solution for development or testing, you can use Ngrok:
 
 1. Install Ngrok: https://ngrok.com/download
