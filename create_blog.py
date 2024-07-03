@@ -24,7 +24,7 @@ db = client["articles"]
 collection = db["tasks"]
 
 llm = Ollama(
-    model = "gemma2",
+    model = "llama3",
     base_url = "http://localhost:11434")
 
 #   Initialize the tools for image searching capabilities
@@ -141,7 +141,7 @@ edit = Task(
     8. Verifying that the content provides balanced viewpoints and avoids unsubstantiated claims.
     9. Ensuring compliance with ethical guidelines and avoiding controversial statements.
     10. Optimizing headings and subheadings for both SEO and readability.
-    11. Aim for a length of 1000-1500 words, with each main section containing 2-3 well-developed paragraphs.
+    11. Strictly provide blog article of 1000-1500 words, with each main section containing 2-3 well-developed paragraphs.
 
     Provide your edits and suggestions directly in the document, using track changes or comments where appropriate. If major revisions are needed, clearly explain your reasoning and provide guidance for improvements.
     """,
