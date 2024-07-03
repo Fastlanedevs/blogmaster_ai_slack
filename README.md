@@ -129,6 +129,9 @@ To make your API accessible from the internet, you can use a reverse proxy like 
    ```
    sudo systemctl restart nginx
    ```
+7. Map your domain to your server's IP address ( you can check it at `https://www.whatismyip.com/`) in your DNS settings available at your DNS Manager( Route53, Godaddy etc..).
+
+Now add an A record with your domain name and IP address.
 
 Now your API should be accessible at `http://your_domain.com`.
 
