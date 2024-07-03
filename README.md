@@ -28,13 +28,14 @@ Blogmaster AI is a Flask-based backend service that generates blog content using
    ```
    MONGO_DB_URI=your_mongodb_connection_string
    OPENAI_API_KEY='NA'
+   SERPER_API_KEY=your_serper_api_key
+   ```
 ---
 
 **Note:** Ensure you us 'NA' for open AI key this will use local model running on ollama.
 
 ---
-   SERPER_API_KEY=your_serper_api_key
-   ```
+   
 4. Install Ollama
     go to https://ollama.com/
     Install ollama 
