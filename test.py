@@ -96,9 +96,9 @@ def create_content(topic, channel):
         edited_post = str(result)
         visual_concept = str(result)
 
-    image_result = generate_image_with_nvidia_nim(visual_concept)
+    image_result = visual_concept
 
-    return edited_post, visual_concept, image_result
+    return edited_post,  image_result
 
 def main():
     urls = input("Enter the URLs to analyze (comma-separated): ").split(',')

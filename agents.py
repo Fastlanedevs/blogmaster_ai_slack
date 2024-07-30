@@ -12,15 +12,15 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 serper_api_key = os.getenv("SERPER_API_KEY")
 class ContentGenerationAgents:
     def __init__(self):
-        # self.llm = ChatAnthropic(
-        #     model="claude-3-sonnet-20240229",
-        #     anthropic_api_key=os.environ["ANTHROPIC_API_KEY"],
-        #     temperature=0.7
-        # )
-        self.llm = Ollama(
-            model="llama3.1",
-            base_url="http://localhost:11434"
+        self.llm = ChatAnthropic(
+            model="claude-3-5-sonnet-20240620",
+            anthropic_api_key=os.environ["ANTHROPIC_API_KEY"],
+            temperature=0.7
         )
+        # self.llm = Ollama(
+        #     model="llama3.1",
+        #     base_url="http://localhost:11434"
+        # )
         self.search_tool = SerperDevTool()
         self.requests_get_tool = Tool(
             name="requests_get",
