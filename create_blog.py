@@ -24,7 +24,7 @@ db = client["articles"]
 collection = db["tasks"]
 
 llm = Ollama(
-    model = "llama3",
+    model = "llama3.1",
     base_url = "http://localhost:11434")
 
 
